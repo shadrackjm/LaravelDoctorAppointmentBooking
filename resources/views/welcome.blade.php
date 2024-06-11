@@ -25,7 +25,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <livewire:hero-section/>
                 <livewire:featured-doctors/>
-
+                <livewire:specialist-cards/>
+                <livewire:featured-articles/>
             </div>
         </div>
     </div>
