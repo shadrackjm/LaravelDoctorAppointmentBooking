@@ -6,8 +6,8 @@
                 <!-- Grid -->
                 <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
                     <div>
-                    <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-white">Your Health, Your Schedule <span class="text-blue-600">Book Appointments with Ease</span></h1>
-                    <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">Welcome!, your one-stop solution for managing your health. Whether you need a quick consultation or a routine check-up, our app lets you book appointments with top-rated doctors at your convenience. Say goodbye to long waits and hello to seamless healthcare</p>
+                    <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-4xl lg:leading-tight dark:text-white">Your Health, Your Schedule <span class="text-blue-600">Book Appointments with Ease</span></h1>
+                    <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">Welcome!, your one-stop solution for managing your health. Whether you need a quick consultation or a routine check-up, our app lets you book appointments with top-rated doctors at your convenience.</p>
 
                     <!-- Buttons -->
                     <div class="mt-7 grid gap-3 w-full sm:inline-flex">
