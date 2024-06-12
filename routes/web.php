@@ -27,6 +27,14 @@ Route::group(['middleware' => 'admin'],function(){
     ->name('admin-doctors');
 
     Route::get('/admin/create/doctor',[AdminController::class,'loadDoctorForm']);
+
+    Route::get('/admin/specialities',[AdminController::class,'loadAllSpecialities'])
+    ->name('admin-specialities');
+
+    // specilities
+    Route::get('/admin/create/specility',[AdminController::class,'loadSpecialityForm']);
+    Route::get('/edit/speciality/{speciality}',[AdminController::class,'loadEditSpecialityForm']);
+
 });
 
 require __DIR__.'/auth.php';

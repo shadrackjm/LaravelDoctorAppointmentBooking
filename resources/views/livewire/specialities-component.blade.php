@@ -14,16 +14,16 @@
           <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
             <div>
               <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
-                Doctors
+                Specialities
               </h2>
               <p class="text-sm text-gray-600 dark:text-neutral-400">
-                Our Registered Doctors.
+                 Registered Specialities.
               </p>
             </div>
 
             <div>
               <div class="inline-flex gap-x-2">
-                <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/admin/create/doctor">
+                <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/admin/create/specility">
                   <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                   Create
                 </a>
@@ -43,32 +43,7 @@
                 </th>
                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
                   <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Doctor Name
-                  </span>
-                </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Email
-                  </span>
-                </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Bio
-                  </span>
-                </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Hospital Name
-                  </span>
-                </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Experience
-                  </span>
-                </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Speciality Name
+                    Specility Name
                   </span>
                 </th>
                 <th scope="col" colspan="2" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
@@ -81,8 +56,8 @@
             </thead>
 
             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-              @if (count($doctors) > 0)
-                  @foreach ($doctors as $item)
+              @if (count($specialities) > 0)
+                  @foreach ($specialities as $item)
                        <tr >
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
@@ -91,32 +66,7 @@
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200"></span>
-                          </div>
-                        </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200"></span>
-                          </div>
-                        </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->bio}}</span>
-                          </div>
-                        </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->hospital_name}}</span>
-                          </div>
-                        </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->experience}}</span>
-                          </div>
-                        </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->speciality_id}}</span>
+                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->speciality_name}}</span>
                           </div>
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
@@ -140,6 +90,7 @@
             </tbody>
           </table>
           <!-- End Table -->
+
         </div>
       </div>
     </div>

@@ -19,4 +19,17 @@ class AdminController extends Controller
     public function loadDoctorForm(){
         return view('admin.doctor-form');
     }
+
+    public function loadAllSpecialities(){
+        return view('admin.specialities');
+    }
+
+    public function loadSpecialityForm(){
+        return view('admin.speciality-form');
+    }
+
+    public function loadEditSpecialityForm($speciality_id){
+        $id = $speciality_id;
+        return view('admin.edit-speciality-form',compact('id'));
+    }
 }
