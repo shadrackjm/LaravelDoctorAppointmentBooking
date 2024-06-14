@@ -1,5 +1,5 @@
 <!-- Table Section -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-7 mx-auto">
   <h5 class="text-2xl my-2">Recent Appointments</h5>
   <!-- Card -->
   <div class="flex flex-col">

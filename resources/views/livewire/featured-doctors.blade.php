@@ -1,7 +1,7 @@
 <!-- Team -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-7 mx-auto">
   <!-- Title -->
-  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+  <div class="max-w-2xl mx-auto text-center mb-5 lg:mb-7">
     <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Our Featured Doctors</h2>
     <p class="mt-1 text-gray-600 dark:text-neutral-400">Specialists</p>
   </div>
@@ -44,7 +44,7 @@
           </div>
           <!-- End Social Brands -->
             @if (auth()->user() != null)
-                <a href="" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                <a href="/booking/page/{{$item->id}}" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                   Book Appointment
                 </a>
             @else
