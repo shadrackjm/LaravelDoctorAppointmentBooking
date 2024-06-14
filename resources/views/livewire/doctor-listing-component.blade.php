@@ -58,6 +58,11 @@
                 </th>
                  <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
                   <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                    Speciality Name
+                  </span>
+                </th>
+                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
+                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                     Hospital Name
                   </span>
                 </th>
@@ -66,11 +71,7 @@
                     Experience
                   </span>
                 </th>
-                 <th scope="col" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Speciality Name
-                  </span>
-                </th>
+                
                 <th scope="col" colspan="2" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
                   <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                     Actions
@@ -91,17 +92,22 @@
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200"></span>
+                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->doctorUser->name}}</span>
                           </div>
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200"></span>
+                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->doctorUser->email}}</span>
                           </div>
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
                             <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->bio}}</span>
+                          </div>
+                        </td>
+                        <td class="h-px w-auto whitespace-nowrap">
+                          <div class="px-6 py-2">
+                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->speciality->speciality_name}}</span>
                           </div>
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
@@ -114,11 +120,7 @@
                             <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->experience}}</span>
                           </div>
                         </td>
-                        <td class="h-px w-auto whitespace-nowrap">
-                          <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->speciality_id}}</span>
-                          </div>
-                        </td>
+                        
                         <td class="h-px w-auto whitespace-nowrap">
                           <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/edit/speciality/{{$item->id}}">
                             Edit

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('hospital_name');
             $table->unsignedBigInteger('speciality_id');
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('bio')->nullable();
             $table->integer('experience')->nullable();
             $table->string('twitter')->nullable();

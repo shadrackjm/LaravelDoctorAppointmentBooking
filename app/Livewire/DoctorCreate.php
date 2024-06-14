@@ -53,6 +53,7 @@ class DoctorCreate extends Component
         $doctor->bio = $this->bio;
         $doctor->hospital_name = $this->hospital_name;
         $doctor->speciality_id = $this->speciality_id;
+        $doctor->user_id = $user->id;
         $doctor->experience = $this->experience;
         $doctor->twitter = $this->twitter;
         $doctor->instagram = $this->instagram;
