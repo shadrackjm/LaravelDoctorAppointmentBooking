@@ -53,6 +53,17 @@ new class extends Component
                         {{ __('Articles') }}
                         </x-nav-link>
                     @endif
+                    @if (auth()->user() && auth()->user()->role == 1)
+                        <x-nav-link :href="route('doctor-dashboard')" :active="request()->routeIs('doctor-dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('my-schedules')" :active="request()->routeIs('my-schedules')" wire:navigate>
+                        {{ __('Schedules') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('doctor-appointments')" :active="request()->routeIs('doctor-appointments')" wire:navigate>
+                        {{ __('My Appointments') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

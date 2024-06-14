@@ -15,4 +15,8 @@ class DoctorSchedule extends Model
         'from',
         'to',
     ];
+
+    public function doctor(){
+        return $this->belongsTo(Doctor::class,'doctor_id');
+    }
 }

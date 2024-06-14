@@ -30,9 +30,23 @@ Route::view('profile', 'profile')
 Route::get('/filter-by-speciality/{speciality_id}',[PatientController::class,'loadDoctorBySpeciality']);
 
 
-Route::get('/doctor/dashboard',[DoctorController::class,'loadDoctorDashboard'])
-->name('doctor-dashboard')
-->middleware('doctor');
+
+Route::group(['middleware' => 'doctor'], function(){
+
+    Route::get('/doctor/dashboard',[DoctorController::class,'loadDoctorDashboard'])
+    ->name('doctor-dashboard');
+
+    Route::get('/doctor/appointments',[DoctorController::class,'loadAllAppointments'])
+    ->name('doctor-appointments');
+
+    Route::get('/doctor/schedules',[DoctorController::class,'loadAllSchedules'])
+    ->name('my-schedules');
+
+    Route::get('/create/schedule',[DoctorController::class,'loadAddScheduleForm']);
+
+    Route::get('/edit/schedule/{schedule_id}',[DoctorController::class,'loadEditScheduleForm']);
+
+});
 
 Route::group(['middleware' => 'admin'],function(){
     Route::get('/admin/dashboard',[AdminController::class,'loadAdminDashboard'])
