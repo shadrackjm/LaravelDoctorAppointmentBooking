@@ -4,4 +4,6 @@
             {{ __('Doctor Dashboard') }}
         </h2>
     </x-slot>
+    <livewire:statistic-component/>
+    <livewire:recent-appointments/>
 </x-app-layout>
