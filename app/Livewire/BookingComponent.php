@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use Livewire\Component;
 use App\Models\Appointment;
 use App\Models\DoctorSchedule;
-use Livewire\Component;
 use Illuminate\Support\Carbon;
+use App\Mail\AppointmentCreated;
+use Illuminate\Support\Facades\Mail;
 
 class BookingComponent extends Component
 {
@@ -22,12 +24,25 @@ class BookingComponent extends Component
 
     public function bookAppointment($slot){
         $carbonDate = Carbon::parse($this->selectedDate)->format('Y-m-d');
-        $newAppointment = new Appointment();
-        $newAppointment->patient_id = auth()->user()->id;
-        $newAppointment->doctor_id = $this->doctor_details->id;
-        $newAppointment->appointment_date = $carbonDate;
-        $newAppointment->appointment_time = $slot;
-        $newAppointment->save();
+        // $newAppointment = new Appointment();
+        // $newAppointment->patient_id = auth()->user()->id;
+        // $newAppointment->doctor_id = $this->doctor_details->id;
+        // $newAppointment->appointment_date = $carbonDate;
+        // $newAppointment->appointment_time = $slot;
+        // $newAppointment->save();
+        
+        $appointmentEmailData = [
+            'date' => $this->selectedDate,
+            'time' => Carbon::parse($slot)->format('H:i A'),
+            'location' => '123 Medical Street, Health City',
+            'patient_name' => auth()->user()->name,
+            'patient_email' => auth()->user()->email,
+            'doctor_name' => $this->doctor_details->doctorUser->name,
+            'doctor_email' => $this->doctor_details->doctorUser->email,
+            'doctor_specialization' => $this->doctor_details->speciality->speciality_name,
+        ];
+        // dd($appointmentEmailData);
+        $this->sendAppointmentNotification($appointmentEmailData);
 
         session()->flash('message','appointment with Dr.'.$this->doctor_details->doctorUser->name.' on '.$this->selectedDate.$slot.' was created!');
 
@@ -102,6 +117,26 @@ class BookingComponent extends Component
         } else {
             $this->timeSlots = [];
         }
+    }
+
+    public function sendAppointmentNotification($appointmentData)
+    {
+        // Send to Admin
+        $appointmentData['recipient_name'] = 'Admin Admin';
+        $appointmentData['recipient_role'] = 'admin';
+        Mail::to('shadrackmballah74@gmail.com')->send(new AppointmentCreated($appointmentData));
+
+        // Send to Doctor
+        $appointmentData['recipient_name'] = $appointmentData['doctor_name'];
+        $appointmentData['recipient_role'] = 'doctor';
+        Mail::to($appointmentData['doctor_email'])->send(new AppointmentCreated($appointmentData));
+
+        // Send to Patient
+        $appointmentData['recipient_name'] = $appointmentData['patient_name'];
+        $appointmentData['recipient_role'] = 'patient';
+        Mail::to($appointmentData['patient_email'])->send(new AppointmentCreated($appointmentData));
+
+        return 'Appointment notifications sent successfully!';
     }
 
     public function render()
