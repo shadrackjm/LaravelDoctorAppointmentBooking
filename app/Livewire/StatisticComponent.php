@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Specialities;
 use App\Models\User;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -11,6 +12,7 @@ use Livewire\Component;
 class StatisticComponent extends Component
 {
     public $users_count = 0;
+    public $specialities_count = 0;
     public $doctors_count = 0;
     public $patients_count = 0;
     public $appointments_count = 0;
@@ -35,6 +37,8 @@ class StatisticComponent extends Component
         $this->doctors_count = Doctor::count();
         $this->patients_count = User::where('role',0)->count();
         $this->appointments_count = Appointment::count();
+        $this->specialities_count = Specialities::count();
+
         if(auth()->user()->role == 1){
             $user_doctor = auth()->user(); 
             $doctor = Doctor::where('user_id',$user_doctor->id)->first();
@@ -73,6 +77,18 @@ class StatisticComponent extends Component
 
                 if(Carbon::parse($value->created_at)->isBetween(Carbon::today()->subMonth(),Carbon::today())){
                     $this->last_month_users_count++;
+                }
+            }
+
+            //  all appointments
+            $all_appointment = Appointment::all();
+            foreach ($all_appointment as $value) {
+                if(Carbon::parse($value->created_at)->isBetween(Carbon::today()->subWeek(),Carbon::today())){
+                    $this->last_week_appointments_count++;
+                }
+
+                if(Carbon::parse($value->created_at)->isBetween(Carbon::today()->subMonth(),Carbon::today())){
+                    $this->last_month_appointments_count++;
                 }
             }
 

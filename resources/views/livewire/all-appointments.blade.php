@@ -184,7 +184,7 @@
                         </td>
                         <td class="size-px whitespace-nowrap align-top">
                           <a class="block p-6" href="#">
-                            <span class="text-sm text-gray-600 dark:text-neutral-400">{{ date('H:i',strtotime($appointment->appointment_time))}}</span>
+                            <span class="text-sm text-gray-600 dark:text-neutral-400">{{ date('H:i A',strtotime($appointment->appointment_time))}}</span>
                           </a>
                         </td>
                         <td class="size-px whitespace-nowrap align-top">
