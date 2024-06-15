@@ -64,6 +64,10 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/admin/create/specility',[AdminController::class,'loadSpecialityForm']);
     Route::get('/edit/speciality/{speciality}',[AdminController::class,'loadEditSpecialityForm']);
 
+
+    // appointments
+    Route::get('/admin/appointments',[AdminController::class,'loadAllAppointments'])
+    ->name('admin-appointments');
 });
 
 require __DIR__.'/auth.php';

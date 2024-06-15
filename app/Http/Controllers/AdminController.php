@@ -33,4 +33,8 @@ class AdminController extends Controller
         return view('admin.edit-speciality-form',compact('id'));
     }
 
+
+    public function loadAllAppointments(){
+        return view('admin.appointments');
+    }
 }

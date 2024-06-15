@@ -29,10 +29,9 @@
             @foreach ($timeSlots as $slot)
                 <button class="m-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700" 
                 type="button"
-                wire:click=""
+                wire:click="bookAppointment('{{$slot}}')"
                 wire:confirm="Are really want to book appointment on {{ $selectedDate }}, {{ $slot }} ?">
-                    {{ date('H:i',strtotime($slot)) }}
-                </button>
+                    {{ date('H:i',strtotime($slot)) }}                 </button>
             @endforeach
         </div>
     </div>
