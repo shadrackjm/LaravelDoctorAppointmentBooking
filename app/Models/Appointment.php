@@ -23,4 +23,15 @@ class Appointment extends Model
     public function patient(){
         return $this->belongsTo(User::class,'patient_id');
     }
+
+    public function scopeSearch($query, $value){
+        $query->where('appointment_date','like',"%{$value}%")
+                ->orWhere('appointment_time','like',"%{$value}%")
+            ->orWhereHas('doctor.doctorUser', function($q) use ($value) {
+                $q->where('name', 'like', "%{$value}%");
+            })
+            ->orWhereHas('patient', function($q) use ($value) {
+                $q->where('name', 'like', "%{$value}%");
+            });
+    }
 }

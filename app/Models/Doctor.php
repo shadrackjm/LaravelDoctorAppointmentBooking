@@ -22,7 +22,7 @@ class Doctor extends Model
     public function speciality(){
         return $this->belongsTo(Specialities::class,'speciality_id');
     }
-    
+
     public function doctorUser(){
         return $this->belongsTo(User::class,'user_id');
     }

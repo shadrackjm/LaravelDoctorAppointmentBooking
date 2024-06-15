@@ -128,6 +128,16 @@
           {{$specialities_count}}
         </h3>
       </div>
+      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
+              <dt class="pe-3 text-center">
+                <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+                <span class="block text-sm text-gray-500 dark:text-neutral-500">last Month</span>
+              </dt>
+              <dd class="text-start ps-3">
+                <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+                <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
+              </dd>
+            </dl>
     </div>
     </a>
     <!-- End Card -->
@@ -175,7 +185,16 @@
           {{$upcoming_appointments_count}}
         </h3>
       </div>
-    
+      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
+              <dt class="pe-3 text-center">
+                <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+                <span class="block text-sm text-gray-500 dark:text-neutral-500">last Month</span>
+              </dt>
+              <dd class="text-start ps-3">
+                <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+                <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
+              </dd>
+            </dl>
       
     </div>
     </a>
@@ -194,8 +213,16 @@
           {{$complete_appointments_count}}
         </h3>
       </div>
-
-      
+      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
+          <dt class="pe-3 text-center">
+            <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+            <span class="block text-sm text-gray-500 dark:text-neutral-500">last Month</span>
+          </dt>
+          <dd class="text-start ps-3">
+            <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">0</span>
+            <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
+          </dd>
+        </dl>
     </div>
     </a>
     <!-- End Card -->
