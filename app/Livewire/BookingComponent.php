@@ -24,12 +24,12 @@ class BookingComponent extends Component
 
     public function bookAppointment($slot){
         $carbonDate = Carbon::parse($this->selectedDate)->format('Y-m-d');
-        // $newAppointment = new Appointment();
-        // $newAppointment->patient_id = auth()->user()->id;
-        // $newAppointment->doctor_id = $this->doctor_details->id;
-        // $newAppointment->appointment_date = $carbonDate;
-        // $newAppointment->appointment_time = $slot;
-        // $newAppointment->save();
+        $newAppointment = new Appointment();
+        $newAppointment->patient_id = auth()->user()->id;
+        $newAppointment->doctor_id = $this->doctor_details->id;
+        $newAppointment->appointment_date = $carbonDate;
+        $newAppointment->appointment_time = $slot;
+        $newAppointment->save();
         
         $appointmentEmailData = [
             'date' => $this->selectedDate,
