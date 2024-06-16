@@ -21,7 +21,6 @@ Route::group(['middleware' => 'patient'], function(){
     ->name('articles');
 
     Route::get('/booking/page/{doctor_id}',[PatientController::class,'loadBookingPage']);
-    
 });
 
 Route::view('profile', 'profile')

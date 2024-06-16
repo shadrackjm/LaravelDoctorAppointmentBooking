@@ -23,10 +23,18 @@
               </p>
             </div>
           </div>
-
+            <div class="mb-3">
+              @if ($item->is_featured)
+                <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-blue-200 text-gray-800 dark:bg-neutral-800 dark:text-neutral-200">
+                    Featured
+                </p>
+              @endif
+            
+          </div>
           <p class="mt-3 text-gray-500 dark:text-neutral-500">
             {{$item->bio}}
           </p>
+          
             <div class="flex justify-between mt-5">
                     <!-- Social Brands -->
           <div class="mt-3 space-x-1">
