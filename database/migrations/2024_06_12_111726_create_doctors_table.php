@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('bio')->nullable();
             $table->integer('experience')->nullable();
+            $table->integer('is_featured')->default(0); //0- not 1 - featured
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->timestamps();

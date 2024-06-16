@@ -21,12 +21,13 @@ Route::group(['middleware' => 'patient'], function(){
     ->name('articles');
 
     Route::get('/booking/page/{doctor_id}',[PatientController::class,'loadBookingPage']);
+    
 });
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
-
+Route::get('/all/doctors',[PatientController::class,'loadAllDoctors']);
 Route::get('/filter-by-speciality/{speciality_id}',[PatientController::class,'loadDoctorBySpeciality']);
 
 

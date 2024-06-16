@@ -2,16 +2,15 @@
 <div class="max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-7 mx-auto">
   <!-- Title -->
   <div class="max-w-2xl mx-auto text-center mb-5 lg:mb-7">
-    <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Our Featured Doctors</h2>
+    <h2 class="text-1xl font-bold md:text-2xl md:leading-tight dark:text-white">Our Proffessional and Specialized Doctors</h2>
     <p class="mt-1 text-gray-600 dark:text-neutral-400">Specialists</p>
   </div>
   <!-- End Title -->
-  
   <!-- Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     
-      @if (count($featuredDoctors) > 0)
-      @foreach ($featuredDoctors as $item)
+      @if (count($all_doctors) > 0)
+      @foreach ($all_doctors as $item)
           <div class="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 dark:bg-neutral-900 dark:border-neutral-700">
           <div class="flex items-center gap-x-4">
             <img class="rounded-full size-20" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80" alt="Image Description">
@@ -61,17 +60,7 @@
       @else
           
       @endif
-    <a class="col-span-full lg:col-span-1 group flex flex-col justify-center text-center rounded-xl p-4 md:p-6 border border-dashed border-gray-200 hover:shadow-sm dark:border-neutral-700" href="/all/doctors">
-      <h3 class="text-lg text-gray-800 dark:text-neutral-200">
-        Explore More!
-      </h3>
-      <div>
-        <span class="inline-flex items-center gap-x-2 text-blue-600 group-hover:text-blue-700 dark:text-blue-500 dark:group-hover:text-blue-400">
-          See all our doctors
-          <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </span>
-      </div>
-    </a>
+    
     <!-- End Col -->
   </div>
   <!-- End Grid -->

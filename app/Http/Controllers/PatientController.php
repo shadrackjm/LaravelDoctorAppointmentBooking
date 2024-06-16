@@ -28,4 +28,8 @@ class PatientController extends Controller
         $doctor = Doctor::with('speciality','doctorUser')->where('id',$id)->first();
         return view('patient.booking-page',compact('doctor'));
     }
+
+    public function loadAllDoctors(){
+        return view('patient.all-doctors');
+    }
 }

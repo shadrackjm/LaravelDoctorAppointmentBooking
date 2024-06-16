@@ -17,6 +17,7 @@ class Doctor extends Model
             'twitter',
             'instagram',
             'experience',
+            'is_featured',
     ];
 
     public function speciality(){
