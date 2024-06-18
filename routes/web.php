@@ -59,6 +59,7 @@ Route::group(['middleware' => 'admin'],function(){
 
     Route::get('/admin/doctors',[AdminController::class,'loadDoctorListing'])
     ->name('admin-doctors');
+    Route::get('/edit/doctor/{speciality}',[AdminController::class,'loadEditDoctorForm']);
 
     Route::get('/admin/create/doctor',[AdminController::class,'loadDoctorForm']);
 
