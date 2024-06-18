@@ -18,7 +18,7 @@ class AdminMiddleware
         if (auth()->user() && auth()->user()->role == 2) {
             return $next($request);
         }
-        return redirect('/403');
+        return redirect('/login');
         
     }
 }

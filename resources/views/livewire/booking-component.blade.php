@@ -1,10 +1,15 @@
 <div>
+  <div wire:loading>
+    <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Processing..</div>
     <!-- Card Blog -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-10 bg-white border my-2  shadow-md">
    <!-- Grid -->
   <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
     <div class="text-center">
-      <img class="rounded-xl sm:size-48 lg:size-60 mx-auto" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80" alt="Image Description">
+      <livewire:profile-image :user_id="$doctor_details->doctorUser->id"/>
       <div class="mt-2 sm:mt-4">
         <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-neutral-200">
           {{$doctor_details->doctorUser->name}}

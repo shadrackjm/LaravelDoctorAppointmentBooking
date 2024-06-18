@@ -45,7 +45,7 @@ class RescheduleForm extends Component
             'doctor_email' => $this->doctor_details->doctorUser->email,
             'doctor_specialization' => $this->doctor_details->speciality->speciality_name,
         ];
-        
+
         $this->sendAppointmentNotification($appointmentEmailData);
 
         session()->flash('message','appointment with Dr.'.$this->doctor_details->doctorUser->name.' on '.$this->selectedDate.$slot.' was created!');

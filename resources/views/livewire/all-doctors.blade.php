@@ -13,7 +13,8 @@
       @foreach ($all_doctors as $item)
           <div class="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 dark:bg-neutral-900 dark:border-neutral-700">
           <div class="flex items-center gap-x-4">
-            <img class="rounded-full size-20" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80" alt="Image Description">
+            <livewire:profile-image :user_id="$item->doctorUser->id"/>
+
             <div class="grow">
               <h3 class="font-medium text-gray-800 dark:text-neutral-200">
                 Dr. {{$item->doctorUser->name}}

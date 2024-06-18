@@ -18,6 +18,6 @@ class DoctorMiddleware
         if (auth()->user() && auth()->user()->role == 1) {
             return $next($request);
         }
-        return redirect('/403');
+        return redirect('/login');
     }
 }

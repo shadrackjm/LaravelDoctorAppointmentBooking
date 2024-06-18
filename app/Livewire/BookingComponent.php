@@ -19,6 +19,7 @@ class BookingComponent extends Component
     public function mount($doctor)
     {   
         $this->doctor_details = $doctor;
+
         $this->fetchAvailableDates($this->doctor_details);
     }
 

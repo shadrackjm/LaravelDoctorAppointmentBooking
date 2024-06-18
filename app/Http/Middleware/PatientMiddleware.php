@@ -18,6 +18,6 @@ class PatientMiddleware
         if (auth()->user() && auth()->user()->role == 0) {
             return $next($request);
         }
-        return redirect('/403');
+        return redirect('/login');
     }
 }
