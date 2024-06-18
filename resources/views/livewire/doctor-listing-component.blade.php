@@ -5,6 +5,11 @@
         <span class="font-bold">Success</span> {{session('message')}}.
       </div>
   @endif
+  <div wire:loading>
+    <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Processing..</div>
   <!-- Card -->
   <div class="flex flex-col">
     <div class="-m-1.5 overflow-x-auto">
@@ -138,7 +143,7 @@
                         </td>
                         
                         <td class="h-px w-auto whitespace-nowrap">
-                          <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/edit/speciality/{{$item->id}}">
+                          <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/edit/doctor/{{$item->id}}">
                             Edit
                           </a>
                         </td>

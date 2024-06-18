@@ -4,7 +4,7 @@
    <!-- Grid -->
   <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
     <div class="text-center">
-      <img class="rounded-xl sm:size-48 lg:size-60 mx-auto" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80" alt="Image Description">
+        <livewire:profile-image :user_id="$doctor_details->doctorUser->id"/>
       <div class="mt-2 sm:mt-4">
         <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-neutral-200">
           {{$doctor_details->doctorUser->name}}

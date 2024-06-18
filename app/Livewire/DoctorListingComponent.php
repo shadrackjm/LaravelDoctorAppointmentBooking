@@ -16,6 +16,15 @@ class DoctorListingComponent extends Component
         $this->doctors = Doctor::with('speciality','doctorUser')->get();
     }
 
+    public function delete($id){
+        $doctor = Doctor::find($id);
+
+        $doctor->delete();
+
+        session()->flash('message','doctor deleted successfully');
+
+        return $this->redirect('/admin/doctors', navigate:true);
+    }
     public function featured($id){
         $doctor = Doctor::find($id);
        
