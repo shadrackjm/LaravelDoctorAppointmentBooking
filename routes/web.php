@@ -21,6 +21,9 @@ Route::group(['middleware' => 'patient'], function(){
     ->name('articles');
 
     Route::get('/booking/page/{doctor_id}',[PatientController::class,'loadBookingPage']);
+
+    Route::get('/patient/reschedule/{appointment_id}',[PatientController::class,'loadReschedulingForm']);
+
 });
 
 Route::view('profile', 'profile')
@@ -46,6 +49,8 @@ Route::group(['middleware' => 'doctor'], function(){
 
     Route::get('/edit/schedule/{schedule_id}',[DoctorController::class,'loadEditScheduleForm']);
 
+    Route::get('/doctor/reschedule/{appointment_id}',[DoctorController::class,'loadReschedulingForm']);
+
 });
 
 Route::group(['middleware' => 'admin'],function(){
@@ -68,6 +73,7 @@ Route::group(['middleware' => 'admin'],function(){
     // appointments
     Route::get('/admin/appointments',[AdminController::class,'loadAllAppointments'])
     ->name('admin-appointments');
+    Route::get('/admin/reschedule/{appointment_id}',[AdminController::class,'loadReschedulingForm']);
 });
 
 require __DIR__.'/auth.php';

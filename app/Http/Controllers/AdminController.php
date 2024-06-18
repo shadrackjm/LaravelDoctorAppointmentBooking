@@ -37,4 +37,9 @@ class AdminController extends Controller
     public function loadAllAppointments(){
         return view('admin.appointments');
     }
+
+    public function loadReschedulingForm($id){
+        $appointment_id = $id;
+        return view('admin.reschedule-form',compact('appointment_id'));
+    }
 }
