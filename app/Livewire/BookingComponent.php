@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Mail;
 class BookingComponent extends Component
 {
     public $doctor_details;
+    public $appointment_type;
     public $selectedDate;
     public $availableDates = [];
     public $timeSlots = [];
 
     public function mount($doctor)
-    {   
+    {
         $this->doctor_details = $doctor;
 
         $this->fetchAvailableDates($this->doctor_details);
@@ -30,8 +31,9 @@ class BookingComponent extends Component
         $newAppointment->doctor_id = $this->doctor_details->id;
         $newAppointment->appointment_date = $carbonDate;
         $newAppointment->appointment_time = $slot;
+        $newAppointment->appointment_type = $this->appointment_type;
         $newAppointment->save();
-        
+
         $appointmentEmailData = [
             'date' => $this->selectedDate,
             'time' => Carbon::parse($slot)->format('H:i A'),
@@ -40,6 +42,7 @@ class BookingComponent extends Component
             'patient_email' => auth()->user()->email,
             'doctor_name' => $this->doctor_details->doctorUser->name,
             'doctor_email' => $this->doctor_details->doctorUser->email,
+            'appointment_type' => $this->appointment_type == 0 ? 'on-site' : 'live consultation',
             'doctor_specialization' => $this->doctor_details->speciality->speciality_name,
         ];
         // dd($appointmentEmailData);
@@ -111,7 +114,7 @@ class BookingComponent extends Component
 
                 $fromTime->addHour();
             }
-            
+
             $this->timeSlots = $slots;
                     // dd($this->timeSlots);
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    
+
      public function loadDoctorBySpeciality($speciality_id){
         $id = $speciality_id;
         $speciality = Specialities::find($id);
@@ -36,5 +36,9 @@ class PatientController extends Controller
     public function loadReschedulingForm($id){
         $appointment_id = $id;
         return view('patient.reschedule-form',compact('appointment_id'));
+    }
+
+    public function loadLiveConsultationPage(){
+        return view('patient.live-consultation');
     }
 }

@@ -21,6 +21,12 @@
     </div>
     <!-- End Col -->
     <div class="text-center">
+        <label for="">Select Appointment Type</label>
+        <select wire:model="appointment_type" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+            <option selected="">Open this select menu</option>
+            <option value="0">On site</option>
+            <option value="1">Live consultation</option>
+          </select>
             <h3>Select an Available Date</h3>
     <input type="text" id="datepicker" autocomplete="off" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Select Available date">
     @if($selectedDate)
@@ -32,7 +38,7 @@
         <h2 class="text-xl font-bold mb-2">Available Time Slots</h2>
         <div class="flex flex-wrap">
             @foreach ($timeSlots as $slot)
-                <button class="m-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700" 
+                <button class="m-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
                 type="button"
                 wire:click="bookAppointment('{{$slot}}')"
                 wire:confirm="Are really want to book appointment on {{ $selectedDate }}, {{ $slot }} ?">
@@ -49,7 +55,7 @@
 <script src="pikaday.js"></script>
     <script>
         // Inject available dates from Livewire
-            var availableDates = @json($availableDates); 
+            var availableDates = @json($availableDates);
 
             var picker = new Pikaday({
                 field: document.getElementById('datepicker'),
@@ -65,5 +71,5 @@
                 }
             });
     </script>
-    
+
 </div>

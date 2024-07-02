@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('patient_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('appointment_date');
             $table->time('appointment_time');
+            $table->integer('appointment_type')->default(0); //0 - onsite appointment & 1- live consultations
             $table->integer('is_complete')->default(0); // 0 - uncomplete 1 -completed
             $table->timestamps();
         });

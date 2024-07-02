@@ -24,7 +24,7 @@ class AllAppointments extends Component
         $patient = User::find($appointment->patient_id);
         $doctor = Doctor::find($appointment->doctor_id);
 
-       
+
         $appointmentEmailData = [
             'date' => $appointment->appointment_date,
             'time' => Carbon::parse($appointment->appointment_time)->format('H:i A'),
@@ -39,7 +39,7 @@ class AllAppointments extends Component
         ];
         // dd($appointmentEmailData);
         $this->sendAppointmentNotification($appointmentEmailData);
-        
+
         $appointment->delete();
 
         session()->flash('message','Appointment cancelled successfully');
@@ -56,6 +56,9 @@ class AllAppointments extends Component
         }
     }
 
+    public function start($appointment_id){
+        $this->redirect('/live_consultation', navigate: true);
+    }
     public function sendAppointmentNotification($appointmentData)
     {
         // Send to Admin
@@ -78,12 +81,12 @@ class AllAppointments extends Component
 
     public function render()
     {
-        $user = auth()->user(); 
+        $user = auth()->user();
 
         if(auth()->user() && auth()->user()->role == 1){
-            
+
             $doctor = Doctor::where('user_id',$user->id)->first();
-        
+
             return view('livewire.all-appointments',[
                 'all_appointments' => Appointment::search($this->search)
                 ->with('patient','doctor')
@@ -92,7 +95,7 @@ class AllAppointments extends Component
             ]);
         }
         if(auth()->user() && auth()->user()->role == 0){
-        
+
             return view('livewire.all-appointments',[
                 'all_appointments' => Appointment::search($this->search)
                 ->with('patient','doctor')

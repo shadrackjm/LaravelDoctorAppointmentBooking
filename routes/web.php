@@ -29,6 +29,7 @@ Route::group(['middleware' => 'patient'], function(){
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+Route::get('/live_consultation',[PatientController::class,'loadLiveConsultationPage']);
 Route::get('/all/doctors',[PatientController::class,'loadAllDoctors']);
 Route::get('/filter-by-speciality/{speciality_id}',[PatientController::class,'loadDoctorBySpeciality']);
 

@@ -24,17 +24,17 @@
               </div>
               <!-- End Input -->
 
-            
+
             </div>
             <!-- End Header -->
 
           <!-- Table -->
           <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
             <thead class="bg-gray-50 dark:bg-neutral-800">
-              
+
               <tr>
                 @if (auth()->user() && auth()->user()->role == 0)
-                
+
                 @else
                     <th scope="col" class="px-6 py-3 text-start">
                     <div class="flex items-center gap-x-2">
@@ -44,7 +44,7 @@
                     </div>
                   </th>
                 @endif
-                
+
 
                 @if (auth()->user() && auth()->user()->role == 1)
 
@@ -61,10 +61,18 @@
                 <th scope="col" class="px-6 py-3 text-start">
                   <div class="flex items-center gap-x-2">
                     <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Appointment Date
+                      Appointment Type
                     </span>
                   </div>
                 </th>
+
+                <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Appointment Date
+                      </span>
+                    </div>
+                  </th>
 
                 <th scope="col" class="px-6 py-3 text-start">
                   <div class="flex items-center gap-x-2">
@@ -96,7 +104,7 @@
                   @foreach ($all_appointments as $appointment)
                     <tr class="bg-white hover:bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-800">
                         @if (auth()->user() && auth()->user()->role == 0)
-                      
+
                       @else
                         <td class="size-px whitespace-nowrap align-top">
                           <a class="block p-6" href="#">
@@ -123,6 +131,9 @@
                             </a>
                           </td>
                          @endif
+                         <td class="h-px w-72 min-w-72 align-top">
+                            <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{ $appointment->appointment_type == 0 ? 'On site' : 'Live Consultation'}}</span>
+                        </td>
                         <td class="h-px w-72 min-w-72 align-top">
                             <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{ date('d M Y',strtotime($appointment->appointment_date))}}</span>
                         </td>
@@ -152,6 +163,12 @@
                         </td>
                         <td class="size-px whitespace-nowrap align-top">
                           <div class="flex p-6">
+                            <button class="bg-green-500 rounded mx-3 text-white p-1 ml-3" wire:click="start({{$appointment->id}})" wire:confirm="Are you really want to Join this Video Call?">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                  </svg>
+
+                              </button>
                             @if (auth()->user()->role == 0)
                                   <a href="/patient/reschedule/{{$appointment->id}}" class="bg-blue-500 rounded text-white p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -171,13 +188,13 @@
                                     </svg>
                                   </a>
                             @endif
-                            
+
                             <button class="bg-red-500 rounded text-white p-1 ml-3" wire:click="cancel({{$appointment->id}})" wire:confirm="Are you really wnt to cancel the appointment?">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                               </svg>
                             </button>
-                            
+
                           </div>
                         </td>
                       </tr>
@@ -187,7 +204,7 @@
                     <td colspan="5">No data Found!</td>
                   </tr>
               @endif
-             
+
             </tbody>
           </table>
           <!-- End Table -->
@@ -204,9 +221,9 @@
               </select>
             </div>
 
-            
+
               {{ $all_appointments->links()}}
-          
+
           <!-- End Footer -->
         </div>
       </div>

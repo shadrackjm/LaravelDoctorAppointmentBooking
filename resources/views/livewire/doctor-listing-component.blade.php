@@ -81,13 +81,13 @@
                     Featured
                   </span>
                 </th>
-                
+
                 <th scope="col" colspan="2" class="px-6 py-3 text-start border-s border-gray-200 dark:border-neutral-700">
                   <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                     Actions
                   </span>
                 </th>
-                
+
               </tr>
             </thead>
 
@@ -112,7 +112,7 @@
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
                           <div class="px-6 py-2">
-                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{$item->bio}}</span>
+                            <span class="text-sm text-gray-800 dark:text-neutral-200">{{ str($item->bio)->words(5)}}</span>
                           </div>
                         </td>
                         <td class="h-px w-auto whitespace-nowrap">
@@ -135,13 +135,13 @@
                             <input type="checkbox"
                               @if ($item->is_featured == 1)
                                   checked
-                              @endif 
+                              @endif
                              wire:click="featured({{$item->id}})" id="hs-basic-usage" class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600
                               before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-200">
                               <label for="hs-basic-usage" class="sr-only">switch</label>
                           </div>
                         </td>
-                        
+
                         <td class="h-px w-auto whitespace-nowrap">
                           <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/edit/doctor/{{$item->id}}">
                             Edit
@@ -159,7 +159,7 @@
                     <td colspan="4">No data found!</td>
                   </tr>
               @endif
-             
+
             </tbody>
           </table>
           <!-- End Table -->

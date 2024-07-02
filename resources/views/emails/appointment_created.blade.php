@@ -9,6 +9,7 @@ An appointment has been successfully created with the following details:
 - **Date:** {{ $appointmentData['date'] }}
 - **Time:** {{ $appointmentData['time'] }}
 - **Location:** {{ $appointmentData['location'] }}
+- **Appointment Type:** {{ $appointmentData['appointment_type'] }}
 
 ### Patient Details:
 - **Name:** {{ $appointmentData['patient_name'] }}
